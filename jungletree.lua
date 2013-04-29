@@ -137,7 +137,7 @@ plantslib:register_generate_plant({
     humidity_max = -0.9,
     humidity_min = 0.4,
     temp_max = -0.9,
-    temp_min = 0,
+    temp_min = -0.3,
   },
   "abstract_trees.grow_jungletree"
 )
