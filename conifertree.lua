@@ -94,14 +94,13 @@ minetest.register_node("trees:sapling_conifer", {
 })
 -- abm
 minetest.register_abm({
-	nodenames = "trees:sapling_conifer",
-	interval = INTERVAL,
-	chance = SAPLING_CHANCE,
-	
-	action = function(pos, node, _, _)
-   		if minetest.env:get_node({x = pos.x, y = pos.y + 1, z = pos.z}).name == "air" then
-   			conifers:make_conifer({x = pos.x, y = pos.y, z = pos.z}, math.random(0, 1))
-   		end
+  nodenames = "trees:sapling_conifer",
+  interval = 1000,
+  chance = 4,
+  action = function(pos, node, _, _)
+    if minetest.env:get_node({x = pos.x, y = pos.y + 1, z = pos.z}).name == "air" then
+      abstract_trees.grow_conifertree({x = pos.x, y = pos.y, z = pos.z})
+      end
     end
 })
 

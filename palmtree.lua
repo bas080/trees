@@ -56,13 +56,6 @@ minetest.register_node("trees:tree_"..name, {
   groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
   sounds = default.node_sound_wood_defaults(),
 })
-minetest.register_node("trees:wood_"..name, {
-  description = name.. " Wood",
-  tiles = {"trees_wood_"..name..".png"},
-  groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-  sounds = default.node_sound_wood_defaults(),
-})
-
 --spawn
 plantslib:register_generate_plant({
 	surface = "default:sand",
