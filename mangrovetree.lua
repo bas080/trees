@@ -50,6 +50,7 @@ name = "mangrove"
 minetest.register_node("trees:leaves_"..name, {
   description = name.. " Leaves",
   drawtype = "allfaces_optional",
+  use_texture_alpha = true,
   tiles = {"trees_leaves_"..name..".png"},
   paramtype = "light",
   groups = {snappy=3, leafdecay=3, flammable=2},
@@ -75,13 +76,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("trees:wood_"..name, {
-  description = name.. " Wood",
-  tiles = {"trees_wood_"..name..".png"},
-  groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-  sounds = default.node_sound_wood_defaults(),
-})
-
 minetest.register_node("trees:sapling_mangrove", {
   description = "Mangrove Sapling",
   drawtype = "plantlike",
@@ -103,9 +97,16 @@ minetest.register_abm({
   end,
 })
 
-minetest.register_alias("trees:leaves_dead_mangrove", "trees:leaves_mangrove")
-minetest.register_alias("trees:leaves_dead_mangrove", "trees:leaves_mangrove")
-minetest.register_alias("trees:tree_dead_mangrove", "trees:tree_mangrove")
+minetest.register_abm({
+  nodenames = "trees:sapling_mangrove",
+  interval = 1000,
+  chance = 4,
+  action = function(pos, node, _, _)
+    if minetest.env:get_node({x = pos.x, y = pos.y + 1, z = pos.z}).name == "air" then
+      abstract_trees.grow_mangrovetree({x = pos.x, y = pos.y, z = pos.z})
+      end
+    end
+})
 
 --spawning
 plantslib:register_generate_plant({

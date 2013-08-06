@@ -1,9 +1,10 @@
 abstract_trees = {}
 
+dofile(minetest.get_modpath("trees").."/nodes.lua")
 dofile(minetest.get_modpath("trees").."/jungletree.lua")
 dofile(minetest.get_modpath("trees").."/mangrovetree.lua")
 dofile(minetest.get_modpath("trees").."/palmtree.lua")
-dofile(minetest.get_modpath("trees").."/loaftree.lua")
+--dofile(minetest.get_modpath("trees").."/loaftree.lua")
 dofile(minetest.get_modpath("trees").."/aliases.lua")
 dofile(minetest.get_modpath("trees").."/conifertree.lua")
 

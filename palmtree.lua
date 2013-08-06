@@ -1,6 +1,6 @@
 --function
-abstract_trees.grow_palmtree = function(pos, size)
-  local size = 4+math.random(6)
+abstract_trees.grow_palmtree = function(pos)
+  local size = 4+math.random(2)
   local trunk_section_height = 2
   local trunk_node = "trees:tree_palm"
   local leaves_node = "trees:leaves_palm"
@@ -34,28 +34,18 @@ abstract_trees.grow_palmtree = function(pos, size)
   end
 end
 
---nodes
-name = "palm"
-minetest.register_node("trees:leaves_"..name, {
-  description = name.. " Leaves",
-  drawtype = "allfaces_optional",
-  tiles = {"trees_leaves_palm.png"},
-  paramtype = "light",
-  groups = {snappy=3, flammable=2},
-  drop = {
-	  max_items = 1,
-	  items = {
-		  {items = {'trees:sapling_palm'},rarity = 20},
-	  }
-  },
-  sounds = default.node_sound_leaves_defaults(),
+-- abm
+minetest.register_abm({
+  nodenames = "trees:sapling_palm",
+  interval = 1000,
+  chance = 4,
+  action = function(pos, node, _, _)
+    if minetest.env:get_node({x = pos.x, y = pos.y + 1, z = pos.z}).name == "air" then
+      abstract_trees.grow_palmtree({x = pos.x, y = pos.y, z = pos.z})
+      end
+    end
 })
-minetest.register_node("trees:tree_"..name, {
-  description = name.. " Tree",
-  tiles = {"trees_tree_top_"..name..".png", "trees_tree_top_"..name..".png", "trees_tree_"..name..".png"},
-  groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
-  sounds = default.node_sound_wood_defaults(),
-})
+
 --spawn
 plantslib:register_generate_plant({
 	surface = "default:sand",
