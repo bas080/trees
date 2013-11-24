@@ -10,6 +10,10 @@ function add_section(pos,size)
           local n = minetest.env:get_node(p)
           if (n.name=="air") then
             minetest.env:add_node(p, {name=leave})
+          elseif (n.name=="ignore") then
+            minetest.after(20, function()
+              minetest.env:add_node(p, {name=leave})
+            end)
           end
         end
       end
@@ -18,6 +22,7 @@ function add_section(pos,size)
 end
 
 abstract_trees.grow_conifertree = function(pos)
+  minetest.after(5, function()
   local size = 5+math.random(10)
   local inter = size/7
   local walk = 2
@@ -37,6 +42,7 @@ abstract_trees.grow_conifertree = function(pos)
       inter = inter + (i/size)*3
     end
   end
+  end)
 end
 
 

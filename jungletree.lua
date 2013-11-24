@@ -15,6 +15,10 @@ local function add_tree_branch(pos)
           local n = minetest.env:get_node(p)
           if (n.name=="air") then
             minetest.env:add_node(p, {name=leave})
+          elseif (n.name=="ignore") then
+            minetest.after(20, function()
+              minetest.env:add_node(p, {name=leave})
+            end)
           end
         end
       end
@@ -23,6 +27,7 @@ local function add_tree_branch(pos)
 end
 
 abstract_trees.grow_jungletree = function(pos)
+  minetest.after(5, function()
   local size =  5+math.random(15)
   if size < 10 then
     for i = size, -2, -1 do
@@ -79,6 +84,7 @@ abstract_trees.grow_jungletree = function(pos)
       end
     end
   end
+  end)
 end
 
 --nodes
