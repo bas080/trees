@@ -50,7 +50,6 @@ name = "mangrove"
 minetest.register_node("trees:leaves_"..name, {
   description = name.. " Leaves",
   drawtype = "allfaces_optional",
-  use_texture_alpha = true,
   tiles = {"trees_leaves_"..name..".png"},
   paramtype = "light",
   groups = {snappy=3, leafdecay=3, flammable=2},

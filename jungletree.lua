@@ -90,7 +90,6 @@ for color = 1, 3 do
     drawtype = "allfaces_optional",
     tiles = {"trees_leaves_"..leaves[color]..".png"},
     paramtype = "light",
-    use_texture_alpha = true,
     groups = {snappy=3, leafdecay=3, flammable=2},
     drop = {
       max_items = 1,
