@@ -10,4 +10,3 @@ BY:             bas080
 DESCRIPTION:    Bigger trees but still tiny trees
 VERSION:        1.5
 LICENCE:        WTFPL
-FORUM:          http://forum.minetest.net/viewtopic.php?id=2344
