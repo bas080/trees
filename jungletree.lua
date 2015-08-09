@@ -130,7 +130,7 @@ minetest.register_abm({
 })
 
 --spawn
-plantslib:register_generate_plant({
+biome_lib:register_generate_plant({
     surface = "default:dirt_with_grass",
     max_count = 30,
     avoid_nodes = {"group:tree"},
