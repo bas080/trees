@@ -108,7 +108,7 @@ minetest.register_abm({
 })
 
 --spawning
-plantslib:register_generate_plant({
+biome_lib:register_generate_plant({
     surface = "default:dirt",
     max_count = 30,
     near_nodes = {"default:water_source"},

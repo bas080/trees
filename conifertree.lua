@@ -58,7 +58,7 @@ minetest.register_abm({
     end
 })
 --spawn
-plantslib:register_generate_plant({
+biome_lib:register_generate_plant({
     surface = {"default:dirt", "default:dirt_with_grass", "snow:dirt_with_snow"},
     max_count = 10,
     avoid_nodes = {"group:tree"},

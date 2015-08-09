@@ -47,7 +47,7 @@ minetest.register_abm({
 })
 
 --spawn
-plantslib:register_generate_plant({
+biome_lib:register_generate_plant({
 	surface = "default:sand",
 	seed_diff = 330,
 	min_elevation = -1,
